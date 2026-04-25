@@ -1,0 +1,11 @@
+spec:
+  containers:
+    - name: eap-backend
+      image: sfseeurope-sto-demo07.registry.snowflakecomputing.com/eap_demo/public/eap_images/eap_backend:latest
+      env:
+        SNOWFLAKE_WAREHOUSE: COMPUTE_WH
+        SNOWFLAKE_DATABASE: EAP_DEMO
+        SNOWFLAKE_SCHEMA: PUBLIC
+  endpoints:
+    - name: eap-backend
+      port: 8081

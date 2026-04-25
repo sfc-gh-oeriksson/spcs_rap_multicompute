@@ -1,0 +1,9 @@
+spec:
+  containers:
+    - name: eap-frontend
+      image: <<REPOSITORY>>/eap_frontend
+      env:
+        VUE_APP_API_URL: /api/snowpark
+  endpoints:
+    - name: app
+      port: 8080

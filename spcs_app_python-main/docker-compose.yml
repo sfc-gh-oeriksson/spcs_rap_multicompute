@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    eap_router:
+        build: ./router
+        ports:
+          - 80:80
+        command:
+          - /=http://frontend:8080/
+          - /api=http://backend:8081/
+
+    frontend:
+        build: ./frontend
+        ports:
+            - 8080:8080
+        environment:
+            - VUE_APP_API_URL=/api/snowpark
+  
+    backend:
+        build: ./backend
+        ports:
+            - 8081:8081
+        environment:
+          - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
+          - SNOWFLAKE_USER=${SNOWFLAKE_USER}
+          - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
+          - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE}
+          - SNOWFLAKE_DATABASE=${SNOWFLAKE_DATABASE}
+          - SNOWFLAKE_SCHEMA=${SNOWFLAKE_SCHEMA}

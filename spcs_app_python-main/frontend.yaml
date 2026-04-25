@@ -1,0 +1,9 @@
+spec:
+  containers:
+    - name: eap-frontend
+      image: sfseeurope-sto-demo07.registry.snowflakecomputing.com/eap_demo/public/eap_images/eap_frontend:latest
+      env:
+        VUE_APP_API_URL: /api/snowpark
+  endpoints:
+    - name: app
+      port: 8080
